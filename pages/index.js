@@ -17,7 +17,7 @@ export default function Home({ exploreData, cardsData }) {
       <NavBar />
       <Hero />
 
-      <main className='max-w-7xl mx-auto px-8 sm:px-16'>
+      <main className='max-w-7xl mx-auto px-8 m-10 sm:px-16 shadow-lg rounded-md'>
         <section className='pt-6'>
           <h2 className='text-4xl font-semibold pb-5'>Explore Nearby</h2>
 
