@@ -6,6 +6,8 @@ import MediumCard from '../components/MediumCard';
 import LargeCard from '../components/LargeCard';
 import Footer from '../components/Footer';
 
+import outdoor from '../public/img/outdoor2.jpg';
+
 export default function Home({ exploreData, cardsData }) {
   return (
     <div className=''>
@@ -45,9 +47,9 @@ export default function Home({ exploreData, cardsData }) {
         </section>
 
         <LargeCard
-          img='https://a0.muscache.com/im/pictures/2da67c1c-0c61-4629-8798-1d4de1ac9291.jpg?im_w=1440'
+          img={outdoor}
           title='The Greatest Outdoors'
-          description='Wishlists curated by Airbnb'
+          description='All for You! by Airbnb'
           buttonText='Get Inspired'
         />
       </main>
@@ -57,6 +59,7 @@ export default function Home({ exploreData, cardsData }) {
   );
 }
 
+// static data passed to props (NextJS feature)
 export async function getStaticProps() {
   const exploreData = await fetch('https://jsonkeeper.com/b/SD9K').then((res) =>
     res.json()

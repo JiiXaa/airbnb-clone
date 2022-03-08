@@ -32,17 +32,40 @@ function NavBar({ placeholder }) {
   };
 
   const search = () => {
-    router.push({
-      pathname: '/search',
-      query: {
-        location: searchInput,
-        startDate: startDate.toISOString(),
-        endDate: endDate.toISOString(),
-        noOfGuests,
-      },
-    });
+    // if search input in navigation is empty it does not run search logic.
+    if (searchInput !== '') {
+      router.push({
+        pathname: '/search',
+        query: {
+          location: searchInput,
+          startDate: startDate.toISOString(),
+          endDate: endDate.toISOString(),
+          noOfGuests,
+        },
+      });
+
+      resetInput();
+    }
   };
 
+  const searchOnKeydown = (e) => {
+    // Logic to run when you press Enter! if search input in navigation is empty it does not run search logic.
+    if (searchInput !== '' && e.key === 'Enter') {
+      router.push({
+        pathname: '/search',
+        query: {
+          location: searchInput,
+          startDate: startDate.toISOString(),
+          endDate: endDate.toISOString(),
+          noOfGuests,
+        },
+      });
+
+      resetInput();
+    }
+  };
+
+  // config options for DateRangePicker (react-date-range library)
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
@@ -69,11 +92,15 @@ function NavBar({ placeholder }) {
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
+          onKeyDown={searchOnKeydown}
           className='flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400'
           type='text'
           placeholder={placeholder || 'Search here...'}
         />
-        <SearchIcon className='hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2' />
+        <SearchIcon
+          onClick={search}
+          className='hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2'
+        />
       </div>
 
       {/* Right */}
@@ -87,6 +114,7 @@ function NavBar({ placeholder }) {
         </div>
       </div>
 
+      {/* options for setting date no. guests etc. opens when you start typing inside of search input */}
       {searchInput && (
         <div className='flex flex-col col-span-3 mx-auto'>
           <DateRangePicker

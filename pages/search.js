@@ -7,7 +7,7 @@ import InfoCard from '../components/InfoCard';
 function Search({ searchResults }) {
   const router = useRouter();
 
-  // console.log(searchResults);
+  console.log(searchResults);
 
   const { location, startDate, endDate, noOfGuests } = router.query;
 
@@ -65,7 +65,7 @@ function Search({ searchResults }) {
 export default Search;
 
 export async function getServerSideProps() {
-  const searchResults = await fetch('https://jsonkeeper.com/b/5NPS').then(
+  const searchResults = await fetch('https://jsonkeeper.com/b/DW47').then(
     (res) => res.json()
   );
 
