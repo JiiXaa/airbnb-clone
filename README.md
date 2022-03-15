@@ -5,4 +5,4 @@
 ✨ Implemented search functionality with date picker/calendar (simple dummy data) 
 <br /><br /> Rest of components are only visual representation (no logic implementation) <br />
 
-[Live Demo](https://bit.ly/airbnb-clone-tom)
+[Live Demo](https://airbnb-clone-q95xqng65-jiixaa.vercel.app/)
