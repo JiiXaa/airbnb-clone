@@ -95,7 +95,7 @@ function NavBar({ placeholder }) {
           onKeyDown={searchOnKeydown}
           className='flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400'
           type='text'
-          placeholder={placeholder || 'Search here...'}
+          placeholder={placeholder || 'Start here and select dates...'}
         />
         <SearchIcon
           onClick={search}

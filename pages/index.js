@@ -37,7 +37,7 @@ export default function Home({ exploreData, cardsData }) {
         </section>
 
         <section>
-          <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
+          <h2 className='text-4xl font-semibold py-8'>Go Anywhere</h2>
 
           <div className='flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3'>
             {cardsData?.map(({ img, title }) => (
@@ -65,7 +65,7 @@ export async function getStaticProps() {
     res.json()
   );
 
-  const cardsData = await fetch('https://jsonkeeper.com/b/MCVG').then((res) =>
+  const cardsData = await fetch('https://jsonkeeper.com/b/LSNS').then((res) =>
     res.json()
   );
 
